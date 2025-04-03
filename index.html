@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -84,3 +85,91 @@
 
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>madesa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="endereço/finalisar/logo.png" type="image/x-icon">
+    <script>
+        function changeMainImage(element) {
+            let mainImage = document.getElementById("mainImage");
+            mainImage.style.opacity = "0"; // Efeito de transição
+            setTimeout(() => {
+                mainImage.src = element.src;
+                mainImage.style.opacity = "1"; // Retorna visível
+            }, 200);
+        }
+
+        function calcularFrete() {
+            let cep = document.getElementById("cepInput").value;
+            let resultadoFrete = document.getElementById("freteResultado");
+
+            if (cep.trim() !== "") {
+                resultadoFrete.innerHTML = "<span style='color: green; font-weight: bold;'>Frete Gratuito!</span>";
+            } else {
+                resultadoFrete.innerHTML = "<span style='color: red;'>Digite um CEP válido.</span>";
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <header class="header">Madesa</header>
+
+    <nav class="navbar">
+        <a href="#">Cozinha</a>
+        <a href="#">Quarto</a>
+        <a href="#">Sala de Jantar</a>
+        <a href="#">Sala de Estar</a>
+        <a href="#">Banheiro</a>
+        <a href="#">Escritório</a>
+        <a href="#">Multiuso</a>
+    </nav>
+
+    <div class="container">
+        <section class="product">
+            <div class="product-gallery">
+                <div class="product-main-image">
+                    <img id="mainImage" src="produto/principal.jpg" alt="Imagem do Produto">
+                </div>
+                <div class="thumbnail-container">
+                    <img class="thumbnail" src="produto/2.jpg" alt="Imagem 1" onclick="changeMainImage(this)">
+                    <img class="thumbnail" src="produto/3.jpg" alt="Imagem 2" onclick="changeMainImage(this)">
+                    <img class="thumbnail" src="produto/4.jpg" alt="Imagem 3" onclick="changeMainImage(this)">
+                </div>
+            </div>
+
+            <div class="product-details">
+                <h2>Geladeira/Refrigerador Electrolux DF36A 310 Litros 2 Portas Frost Free Branco</h2>
+                <p class="price">R$ 600,00 <span class="discount">R$ 800,99</span></p>
+                <p class="payment-options">à vista no PIX (7% OFF) ou 3x de R$ 133,33 sem juros</p>
+
+                <div class="freight">
+                    <input type="text" id="cepInput" placeholder="Digite seu CEP">
+                    <button class="freight-button" onclick="calcularFrete()">Calcular Frete</button>
+                </div>
+                <p id="freteResultado" style="margin-top: 10px;"></p>
+
+             <a href="endereço/endereço.html" target="_blank" rel="noopener noreferrer"> <button  class="buy-button">Comprar Agora</button></a>
+                <button class="cart-button">Adicionar ao Carrinho</button>
+            </div>
+        </section>
+
+        <section class="description">
+            <p>Geladeira funcionando perfeitamente, ela é 220V.</p>
+        </section>
+    </div>
+
+    <footer class="footer">
+        © 2025 Madesa - Todos os direitos reservados.
+    </footer>
+
+    <div class="whatsapp-button">💬</div>
+
+</body>
+</html>
+>>>>>>> 57da2424981c6570724ef71088fd815458963d51
