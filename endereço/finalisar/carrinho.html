@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madesa</title>
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="logo">madesa</h1>
+    </header>
+    
+    <div class="cart-container">
+        <h2>Meu Carrinho</h2>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Preço</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="product-info">
+                        <img src="principal.jpg" alt="" class="product-image">
+                        <span>Porta-Geladeira Madesa Lux 1 Porta Basculante Rustic/Cinza</span>
+                    </td>
+                    <td>
+                        <input type="number" value="1" min="1">
+                    </td>
+                    <td>R$ 600,00</td>
+                    <td><button class="remove-button">🗑️</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="freight-section">
+            <label for="cep">Calcule o frete:</label>
+            <input type="text" id="cep" placeholder="Digite seu CEP">
+            <button class="calculate-button" onclick="calculateFreight()">Calcular</button>
+        </div>
+        
+        <div class="summary">
+            <p>Subtotal: <span>R$ 600,00</span></p>
+            <p>Entrega: <span id="freight-cost">Frete Gratuito</span></p>
+            <p>Desconto no frete: <span>R$ -0,00</span></p>
+            <p>Desconto no PIX: <span>R$ -0,00</span></p>
+            <h3>Total: <span id="total-price">R$ 600,00</span></h3>
+            <button class="checkout-button">Finalizar Compra</button>
+            <button class="continue-button">Continuar Comprando</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Madesa - Todos os direitos reservados.</p>
+    </footer>
+    <!-- Modal de Pagamento -->
+  
+</div>
+<div id="pix-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <img src="logo-pix-1024.png" alt="Pix" class="pix-logo">
+        <h2>Escaneie o código com seu celular</h2>
+        <img src="code.jpg" alt="QR Code" class="qr-code">
+        <p>Abra o app do seu banco no celular, escolha Pix e escaneie o código.</p>
+        <a href="#" class="pay-without-phone">Pagar sem o celular</a>
+        <p><strong>Valor da compra:</strong> R$ 600,00</p>
+    </div>
+</div>
+
+
+    <script>
+        function calculateFreight() {
+            document.getElementById("freight-cost").innerText = "Frete Gratuito";
+            document.getElementById("total-price").innerText = "R$ 600,00";
+        }
+    </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Obtém os elementos do modal
+        var modal = document.getElementById("pix-modal");
+        var finalizarCompraBtn = document.querySelector(".checkout-button");
+        var closeModalBtn = document.querySelector(".close-btn");
+
+        // Certifica-se de que o modal esteja escondido no início
+        modal.style.display = "none";
+
+        if (finalizarCompraBtn) {
+            // Exibe o modal SOMENTE ao clicar em "Finalizar Compra"
+            finalizarCompraBtn.addEventListener("click", function(event) {
+                event.preventDefault(); // Impede a navegação
+                modal.style.display = "flex";
+            });
+        }
+
+        if (closeModalBtn) {
+            // Fecha o modal ao clicar no "X"
+            closeModalBtn.addEventListener("click", function() {
+                modal.style.display = "none";
+            });
+        }
+
+        // Fecha o modal ao clicar fora da área do conteúdo
+        window.addEventListener("click", function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    });
+</script>
+
+    
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>madesa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="finalisar/logo.png" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <h2>Adicionar um Novo Endereço</h2>
+        <form id="address-form">
+            <label for="address-name">Nome deste endereço (Opcional)</label>
+            <input type="text" id="address-name" placeholder="Ex. Minha casa">
+
+            <label for="phone">Celular*</label>
+            <input type="text" id="phone" required>
+
+            <label for="cep">CEP*</label>
+            <input type="text" id="cep" required>
+
+            <label for="street">Endereço*</label>
+            <input type="text" id="street" required>
+
+            <div class="row">
+                <div>
+                    <label for="number" >Número*</label>
+                    <input type="number" id="number" required>
+                </div>
+                <div>
+                    <label for="complement">Complemento</label>
+                    <input type="text" id="complement">
+                </div>
+            </div>
+
+            <div class="row">
+                <div>
+                    <label for="neighborhood">Bairro*</label>
+                    <input type="text" id="neighborhood" required>
+                </div>
+                <div>
+                    <label for="city">Cidade*</label>
+                    <input type="text" id="city" required>
+                </div>
+            </div>
+
+            <label for="reference">Ponto de referência (Opcional)</label>
+            <input type="text" id="reference">
+
+            <label for="state">Estado*</label>
+            <select id="state" required>
+                <option value="">Selecione</option>
+                <option value="PE">Pernambuco</option>
+                <option value="SP">São Paulo</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <!-- Adicione mais estados aqui -->
+            </select>
+
+            <div class="checkbox">
+                <input type="checkbox" id="principal" checked>
+                <label for="principal">Tomar este endereço como PRINCIPAL</label>
+            </div>
+            <div class="buttons">
+                <button type="button" class="btn btn-primary" onclick="validateForm()">Avançar</button>
+                <button type="button" class="btn btn-secondary">Voltar</button>
+            </div>
+            
+            
+        </form>
+    </div>
+</body>
+<script>
+    function validateForm() {
+        // Pegando os valores dos campos obrigatórios
+        let phone = document.getElementById("phone").value.trim();
+        let cep = document.getElementById("cep").value.trim();
+        let street = document.getElementById("street").value.trim();
+        let number = document.getElementById("number").value.trim();
+        let neighborhood = document.getElementById("neighborhood").value.trim();
+        let city = document.getElementById("city").value.trim();
+        let state = document.getElementById("state").value.trim();
+
+        // Verifica se algum campo obrigatório está vazio
+        if (phone === "" || cep === "" || street === "" || number === "" || 
+            neighborhood === "" || city === "" || state === "") {
+            alert("⚠️ Por favor, preencha todos os campos obrigatórios.");
+            return;
+        }
+
+        // Se tudo estiver preenchido, redireciona para a página do carrinho
+        window.location.href = 'finalisar/carrinho.html';
+    }
+</script>
+
+</html>
