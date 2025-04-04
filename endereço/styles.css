@@ -11,7 +11,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     padding: 20px;
 }
 
@@ -49,15 +49,31 @@ input, select {
     transition: border-color 0.3s ease-in-out;
 }
 
-/* Efeito ao clicar no input (foco) */
 input:focus, select:focus {
-    border-color: #800000; /* Roxo */
+    border-color: #800000;
     outline: none;
 }
 
-.checkbox-container {
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.row div {
+    flex: 1;
+    min-width: 120px;
+}
+
+.checkbox {
     display: flex;
     align-items: center;
+    gap: 10px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
     gap: 10px;
 }
 
@@ -70,14 +86,14 @@ button {
     cursor: pointer;
 }
 
-button.voltar {
-    background: #ccc;
-    color: #333;
-}
-
-button.avancar {
+.btn-primary {
     background: #28a745;
     color: white;
+}
+
+.btn-secondary {
+    background: #ccc;
+    color: #333;
 }
 
 button:hover {
@@ -86,8 +102,10 @@ button:hover {
 
 @media (max-width: 600px) {
     .container {
-        width: 100%;
         max-width: 100%;
         padding: 15px;
+    }
+    .row {
+        flex-direction: column;
     }
 }
